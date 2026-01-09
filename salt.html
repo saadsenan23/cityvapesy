@@ -1,0 +1,2869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City-Vape</title>
+<header>
+<img src="logg.png" alt="website Logo" id="logo">
+</header>
+<div id="top-bar">
+  <a href="https://wa.me/message/IXYMUJRDLYOXA1" target="_blank">
+    <img src="wa.png" alt="WhatsApp" class="icon"> Whatsapp
+  </a>
+  <a href="https://www.instagram.com/cityvpsy?igsh=MXVuejZkYnE4cXNrOQ==" target="_blank">
+    <img src="insta.png" alt="Instagram" class="icon"> Instagram
+  </a>
+</div>
+<style>
+#top-bar {
+  position: fixed;        
+  top: 0;                 
+  left: 0;              
+  width: 100%;            
+  background-color: #dcdcdc;
+  padding: 15px 0;        
+  display: flex;
+  justify-content: center; 
+  gap: 30px;               
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  z-index: 1000;         
+}
+
+#top-bar a {
+  color: black;
+  text-decoration: none;
+font-weight: bold;
+display: flex;
+align-items: center;
+gap: 2px;
+}
+
+#top-bar a:hover {
+  color: #ff9d00;
+
+}
+.icon {
+
+    width: 15px;
+    height: 15px;
+}
+#image-slider {
+  position: relative;
+  max-width: 230px;      /* تصغير عرض الـ slider */
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 10px;
+  font-size: 12px;       /* تصغير حجم النصوص داخل الزر */
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  display: none;
+  height: auto;           /* يحافظ على نسبة الصورة */
+}
+
+.slide.active {
+  display: block;
+}
+
+#image-slider button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 2px 8px;           /* تصغير حجم الزر */
+  cursor: pointer;
+  font-size: 14px;        /* تصغير السهم */
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+#image-slider:hover button {
+    opacity: 1;
+}
+#prev { left: 5px; }
+#next { right: 5px; }
+</style>
+</head>
+
+
+
+
+
+<body>
+
+<div class="search-container">
+  <input 
+    type="text" 
+    id="searchInput" 
+    placeholder="Search now..."
+  >
+  <button id="searchBtn">🔍︎</button>
+</div>
+<div id="noResults">لم يتم الحصول على نتائج</div>
+
+
+<!-- زر التلت شخطات -->
+<div id="menu-btn">☰</div>
+
+<!-- القائمة الجانبية -->
+<div id="side-menu" class="side-menu">
+
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li class="has-submenu">
+      <span class="submenu-toggle">Liquids</span>
+      <ul class="submenu">
+        <li><a href="freebase.html">Free Base</a></li>
+        <li><a href="salt.html">Salt Nicotine</a></li>
+      </ul>
+    </li>
+    <li>
+  <button class="menu-item" id="contact-btn">Contact</button>
+  <div id="contact-box" class="hidden">
+    <a href="https://wa.me/message/IXYMUJRDLYOXA1" target="_blank">
+      <img src="wa.png" alt="WhatsApp" class="contact-icon">
+      WhatsApp
+    </a>
+    <a href="https://www.instagram.com/cityvpsy?igsh=MXVuejZkYnE4cXNrOQ==" target="_blank">
+      <img src="insta.png" alt="Instagram" class="contact-icon">
+      Instagram
+    </a>
+  </div>
+</li>
+    <li><a href="disposables.html">Disposables</a></li>
+   <li>
+  <button class="menu-item" id="direction-btn">
+    ⚲ Directions
+  </button>
+  <div id="direction-box" class="hidden">
+    <p><a href="https://maps.google.com/?q=33.518898,36.280708"target="_blank">فرع الجاحظ</a></p>
+
+    <p><a href="https://maps.app.goo.gl/7Pwk6Y3beyesFKCF7?g_st=awb"target="_blank">فرع مساكن برزة</a></p>
+  </div>
+</li>
+</div>
+<!-- أزرار الفلترة -->
+<div id="filter-buttons" style="margin-top: 10px; text-align: center;">
+  <button onclick="location.href='freebase.html'"style="padding: 8px 15px; margin-right: 10px; background-color: #FFA500; border: none; border-radius: 5px; cursor: pointer;">
+    Freebase
+  </button>
+  <button onclick="location.href='salt.html'" style="padding: 8px 15px; background-color: #FFA500; border: none; border-radius: 5px; cursor: pointer;">
+    SaltNic
+  </button>
+<button onclick="location.href='vapes.html'" style="padding: 8px 15px; background-color: #FFA500; border: none; border-radius: 5px; cursor: pointer;">
+    Vapes
+  </button>
+<button onclick="location.href='disposables.html'" style="padding: 8px 15px; background-color: #FFA500; border: none; border-radius: 5px; cursor: pointer;">
+    Disposables
+  </button>
+</div>
+
+
+
+<div class="product" data-name="dr vape peach salt ">
+  <div class="product-image-wrapper">
+    <img src="peach 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-Peach</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-peach-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+<div class="product" data-name="dr vape peach ice salt ">
+  <div class="product-image-wrapper">
+    <img src="peach ice 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-Peach ice</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-peach-ice-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+<div class="product" data-name="dr vape peach super ice salt ">
+  <div class="product-image-wrapper">
+    <img src="peach super.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-Peach super ice</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-peach-super-ice-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+<div class="product" data-name="dr vape red apple salt ">
+  <div class="product-image-wrapper">
+    <img src="red apple 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-Red apple</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-red-apple-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+<div class="product" data-name="dr vape red apple ice salt ">
+  <div class="product-image-wrapper">
+    <img src="red apple ice 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-Red apple ice</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-red-apple-ice-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="product" data-name="dr vape red apple super ice salt ">
+  <div class="product-image-wrapper">
+    <img src="red apple super ice 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-Red apple super ice</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-red-apple-super-ice-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+<div class="product" data-name="dr vape watermelon salt ">
+  <div class="product-image-wrapper">
+    <img src="watermelon 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-Watermelon</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-watermelon-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+<div class="product" data-name="dr vape watermelon ice salt ">
+  <div class="product-image-wrapper">
+    <img src="watermelon ice 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-Watermelon ice</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-watermelon-ice-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+<div class="product" data-name="dr vape watermelon super ice salt ">
+  <div class="product-image-wrapper">
+    <img src="BER (3).jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-Watermelon super ice</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-watermelon-super-ice-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="product" data-name="dr vape mango salt ">
+  <div class="product-image-wrapper">
+    <img src="mango 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-Mango</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-mango-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+<div class="product" data-name="dr vape mango ice salt ">
+  <div class="product-image-wrapper">
+    <img src="mango ice 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-Mango ice</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-mango-ice-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+<div class="product" data-name="dr vape mango super ice salt ">
+  <div class="product-image-wrapper">
+    <img src="BER (5).jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-Mango super ice</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-mango-super-ice-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+<div class="product" data-name="dr vape berries salt ">
+  <div class="product-image-wrapper">
+    <img src="berries 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-Berries</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-berries-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="product" data-name="dr vape berries ice salt ">
+  <div class="product-image-wrapper">
+    <img src="berries ice 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-Berries ice</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-berries-ice-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+<div class="product" data-name="dr vape berries super ice salt ">
+  <div class="product-image-wrapper">
+    <img src="BER (1).jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-berries super ice</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-berries-super-ice-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="product" data-name="dr vape pink currency salt ">
+  <div class="product-image-wrapper">
+    <img src="pink currincy 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-Pink </h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-pink-black-curriency-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="product" data-name="dr vape pink frozen salt ">
+  <div class="product-image-wrapper">
+    <img src="pink frozen 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-Pink frozen</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-pink-panthier-frozen-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+<div class="product" data-name="dr vape pink soar remix salt ">
+  <div class="product-image-wrapper">
+    <img src="pink soar remix 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-Pink soar remix</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-pink-soar-remix-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="product" data-name="dr vape blue salt ">
+  <div class="product-image-wrapper">
+    <img src="blue 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-Blue</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-blue-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+<div class="product" data-name="dr vape blue ice salt ">
+  <div class="product-image-wrapper">
+    <img src="blue ice 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-Blue ice</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-blue-ice-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+<div class="product" data-name="dr vape purple salt ">
+  <div class="product-image-wrapper">
+    <img src="purple 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-Purple</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-purple-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+<div class="product" data-name="dr vape purple ice salt ">
+  <div class="product-image-wrapper">
+    <img src="purpple ice 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-Purple ice</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-purple-ice-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+<div class="product" data-name="dr vape gold lychee salt ">
+  <div class="product-image-wrapper">
+    <img src="gold 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-Gold lychee Fruits</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-gold-lychee-fruits-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+<div class="product" data-name="dr vape gold ice salt ">
+  <div class="product-image-wrapper">
+    <img src="gold ice 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-Gold ice</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-gold-ice-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="product" data-name="dr vape pink coconut salt ">
+  <div class="product-image-wrapper">
+    <img src="pink coconut 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-Pink coconut</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-pink-coconut-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+<div class="product" data-name="dr vape pink soar salt ">
+  <div class="product-image-wrapper">
+    <img src="pink soar 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-Pink soar</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-pink-soar-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+<div class="product" data-name="dr vape pink crazy salt ">
+  <div class="product-image-wrapper">
+    <img src="pink crazy 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-Pink Crazy</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-pink-crazy-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+<div class="product" data-name="dr vape pink royal salt ">
+  <div class="product-image-wrapper">
+    <img src="pink royal 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-Pink Royal</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-pink-royal-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+<div class="product" data-name="dr vape green ice salt ">
+  <div class="product-image-wrapper">
+    <img src="green ice 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-Green Ice</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-green-ice-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+<div class="product" data-name="dr vape the bubblegum king original ice ">
+  <div class="product-image-wrapper">
+    <img src="king ice 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-Theking of bubble gum ice</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-kingbublegum-ice-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+<div class="product" data-name="dr vape the king of bubblegum watermelon ice ">
+  <div class="product-image-wrapper">
+    <img src="king green ice 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-theking of bubble gum watermelon ice</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-thekingof-bubblegum-watermmelon-ice-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+<div class="product" data-name="dr vape the king of bubblegum original salt ">
+  <div class="product-image-wrapper">
+    <img src="king original 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-The king of bubblegum original</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-kingofbubblegum-original-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+<div class="product" data-name="dr vape the king of bubblegum cola ice salt ">
+  <div class="product-image-wrapper">
+    <img src="cola ice king.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-The king of bubblegum cola ice</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-kingofbubblegum-cola-ice-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+<div class="product" data-name="dr vape unicorn">
+  <div class="product-image-wrapper">
+    <img src="unicorn 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-Unicorn</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-kingofbubblegum-original-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="product" data-name="dr vape black custard">
+  <div class="product-image-wrapper">
+    <img src="black custard 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-Black Custard</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-black-custard-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="product" data-name="dr vape black tobacco">
+  <div class="product-image-wrapper">
+    <img src="black 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-Black Tobacco</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-black-tobacco-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+<div class="product" data-name="dr vape spearmint">
+  <div class="product-image-wrapper">
+    <img src="spearmint 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-Spearmint</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-spearmint-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+<div class="product" data-name="dr vape lotus">
+  <div class="product-image-wrapper">
+    <img src="lotus 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Dr Vape-Lotus</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=dr-vape-Lotus-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+<div class="product" data-name="grand e liquid mega berry ice">
+  <div class="product-image-wrapper">
+    <img src="berry ice mega salt.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Grand E Liquid-Mega Berry ice</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=grand-e-liquid-mega-berry-ice-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+<div class="product" data-name="grand e liquid mega berry">
+  <div class="product-image-wrapper">
+    <img src="mega berry salt.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Grand E Liquid-Mega Berry</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=grand-e-liquid-mega-berry-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+<div class="product" data-name="grand e liquid mega mango">
+  <div class="product-image-wrapper">
+    <img src="mango mega 30ml.png" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Grand E Liquid-Mega Mango</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=grand-e-liquid-mega-mango-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+<div class="product" data-name="grand e liquid mega melon">
+  <div class="product-image-wrapper">
+    <img src="melon mega 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Grand E Liquid-Mega Melon</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=grand-e-liquid-mega-melon-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+<div class="product" data-name="grand e liquid mega mango grape">
+  <div class="product-image-wrapper">
+    <img src="mega mango grape ice 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Grand E Liquid-Mega Mango grape ice</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=grand-e-liquid-mega-mango-grape-ice-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+<div class="product" data-name="grand e liquid mega cherry ice">
+  <div class="product-image-wrapper">
+    <img src="mega cherry ice 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Grand E Liquid-Mega Cherry ice</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=grand-e-liquid-mega-cherry-ice-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+<div class="product" data-name="grand e liquid mega mango ice">
+  <div class="product-image-wrapper">
+    <img src="mega mango ice 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Grand E Liquid-Mega Mango ice</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=grand-e-liquid-mega-mango-ice-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="product" data-name="grand e liquid mega passion fruits ice">
+  <div class="product-image-wrapper">
+    <img src="passion fruits 30ml mega.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Grand E Liquid-Mega Passion Fruits ice</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=grand-e-liquid-mega-passion-fruits-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+<div class="product" data-name="grand e liquid mega energy ice">
+  <div class="product-image-wrapper">
+    <img src="energy mega 30ml ice.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Grand E Liquid-Mega Energy ice</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=grand-e-liquid-mega-energy-ice-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+<div class="product" data-name="grand e liquid mega peach ice">
+  <div class="product-image-wrapper">
+    <img src="peach ice 30ml mega.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Grand E Liquid-Mega Peach ice</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=grand-e-liquid-mega-peach-ice-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+<div class="product" data-name="Ripe Vapes Vct ">
+  <div class="product-image-wrapper">
+    <img src="vct 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Ripe vapes-VCT</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="12">
+    30/50 mg
+    <input type="text" name="nicotine" value="120">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=RIPE-vape-VCT-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+<div class="product" data-name="sams vipe sweet tobacco">
+  <div class="product-image-wrapper">
+    <img src="sweet tobacco 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Sams Vipe-Sweet tobacco</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=sams-vape-sweet-tobacco-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+<div class="product" data-name="sams vipe sweet berry">
+  <div class="product-image-wrapper">
+    <img src="sweet berry 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Sams Vipe-Sweet berry</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=sams-vape-sweet-berry-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+<div class="product" data-name="sams vipe frozen cherry cola">
+  <div class="product-image-wrapper">
+    <img src="frozen cherry cola 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Sams Vipe-Cherry cola ice</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=sams-vape-cherry-cola-frozen-berry-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="product" data-name="sams vipe cherry cola">
+  <div class="product-image-wrapper">
+    <img src="cherry cola 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Sams Vipe-Cherry cola</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=sams-vape-sweet-berry-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+<div class="product" data-name="sams vipe mello melon ice">
+  <div class="product-image-wrapper">
+    <img src="mello melon 30ml ice.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Sams Vipe-Mello melon</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=sams-vape-mello-melon-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+<div class="product" data-name="sams vipe sweet peach ice">
+  <div class="product-image-wrapper">
+    <img src="sweet peach ice 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Sams Vipe-Sweet peach ice</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=sams-vape-sweet-peach-ice-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+<div class="product" data-name="sams vipe sweet peach">
+  <div class="product-image-wrapper">
+    <img src="sweet peach ice 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Sams Vipe-Sweet peach</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=sams-vape-sweet-peach-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="product" data-name="sams vipe juicy apple ice">
+  <div class="product-image-wrapper">
+    <img src="juicy apple 30ml.png" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Sams Vipe-Juicy apple</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=sams-vape-juicy-apple-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+<div class="product" data-name="sams vipe sweet grape ice">
+  <div class="product-image-wrapper">
+    <img src="sweet grape ice 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Sams Vipe-Sweet grape ice</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=sams-vape-sweet-grape-ice-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+<div class="product" data-name="sams vipe peach power">
+  <div class="product-image-wrapper">
+    <img src="peach power 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Sams Vipe-Peach power</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=sams-vape-peach-power-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+<div class="product" data-name="sams vipe grape xtrem ice">
+  <div class="product-image-wrapper">
+    <img src="grape extrem 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Sams Vipe-grape xtrem ice</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=sams-vape-grape-xtrem-ice-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+<div class="product" data-name="sams vipe minty breez">
+  <div class="product-image-wrapper">
+    <img src="minty breez 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Sams Vipe-Minty breez</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=sams-vape-minty-breez-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+<div class="product" data-name="sams vipe sweet melon">
+  <div class="product-image-wrapper">
+    <img src="sweet melon 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Sams Vipe-Sweet melon</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=sams-vape-sweet-melon-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+<div class="product" data-name="sams vipe tropx xplod">
+  <div class="product-image-wrapper">
+    <img src="tropx xplod 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">Sams Vipe-tropx xplod</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="30">
+    30/50 mg
+    <input type="text" name="nicotine" value="30">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">11$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=sams-vape-tropx-xplod-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+<style>
+
+
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 30px auto;
+}
+
+#searchInput {
+  width: 220px;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+#searchBtn {
+  padding: 8px 14px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  background-color: #ccc;
+}
+
+#noResults {
+  display: none;             /* مخفي افتراضياً */
+  position: fixed;           /* مثبت بالنسبة للنافذة */
+  bottom: 20px;              /* المسافة من أسفل الصفحة */
+  left: 50%;                 /* تمركز أفقي */
+  transform: translateX(-50%); /* تمركز تمام */
+  width: 250px;              /* عرض البوكس */
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #f5f5f5;
+  font-size: 13px;
+  color: #555;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2); /* لمسة احترافية */
+  z-index: 1000;             /* فوق كل العناصر */
+}
+
+#menu-btn {
+  font-size: 28px;
+  cursor: pointer;
+  color: gray;
+  position: fixed;
+  top: 50px;
+  left: 10px;
+  z-index: 10000;
+  font-size: 24px;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #c1c1c1;
+  padding: 5px 5px;
+  border-radius: 2px;
+
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100%;
+  background-color: rgba(199, 199, 199, 0.7);
+  transform: translateX(-100%);
+  transition: 0.3s ease;
+  padding: 20px;
+  z-index: 9999;
+
+}
+
+.side-menu.open {
+  transform: translateX(0);
+}
+
+.side-menu ul {
+  list-style: none;
+  padding: 60px 0 0 0 ;
+}
+
+.side-menu li {
+  margin-bottom: 15px;
+}
+
+.side-menu a,
+.submenu-toggle {
+  text-decoration: none;
+  color: #000000;
+  font-size: 16px;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 2px;
+  margin-top: 0;
+  padding: 2px 0;
+}
+
+.submenu {
+  display: none;
+  margin: 0;
+  padding-left: 15px;
+}
+
+.submenu li {
+  margin: 0;
+  padding: 2px 0;
+}
+body {
+
+  overflow-x: hidden;
+}
+/* كل أسماء القائمة الجانبية */
+.side-menu span,
+.side-menu a {
+  font-size: 30px;       /* حجم الخط */
+  font-weight: bold;      /* الخط عريض */
+  color: rgb(103, 103, 103);           /* اللون الأساسي */
+  text-decoration: none;  /* إزالة الخط تحت النص */
+  transition: color 0.3s; /* حركة سلسة عند تغيير اللون */
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+/* تأثير hover */
+.side-menu span:hover,
+.side-menu a:hover {
+  color: rgb(255, 170, 0);          /* يتحول أصفر عند المرور بالماوس */
+}
+
+.side-menu .menu-item {
+width: 100%;
+background: none;
+border: none;
+color: #7a7a7a;
+font-size: 30px;
+text-align: left;
+padding: 10px 15px;
+display: flex;
+align-items: center;
+cursor: pointer;
+transition: color 0.3s background 0.3;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.side-menu .menu-item .icon {
+margin-right: 10px;
+font-size: 30px;
+position: relative;
+top: -2px;
+
+
+}
+.side-menu .menu-item:hover {
+
+color: rgb(255, 170, 0);
+
+}
+#direction-box {
+  background-color: #c1c1c1;  /* لون الخلفية للصندوق */
+  padding: 10px;
+  margin-top: 5px;            /* مسافة بين الزر والصندوق */
+  border-radius: 8px;          /* حواف ناعمة */
+  display: none;               /* مخفي بالافتراض */
+  text-align: center;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  align-items: center;
+}
+
+#direction-box p {
+  margin: 5px 0;     /* مسافة صغيرة بين العناوين */
+  text-decoration: none;
+
+}
+#direction-btn {
+border: 2px solid gray;
+border-radius: 5px;
+padding: 8px 12px;
+font-weight: bold;
+cursor: pointer;
+transition: all 0.3s;
+}
+#contact-box {
+  background-color: transparent;
+  padding: 5px;
+  margin-top: 5px;
+  display: none;
+  text-align: center;
+}
+
+#contact-box a {
+  display: flex;
+  align-items: center;
+  gap: 8px;          /* المسافة بين الصورة والكلمة */
+  text-decoration: none;
+  color: rgb(122, 122, 122);
+  font-weight: normal;
+  margin: 3px 0;
+  transition: color 0.3s;
+  font-size: 20px;
+
+}
+
+#contact-box a:hover {
+  color: rgb(255, 196, 0);      /* تأثير عند المرور */
+}
+
+.contact-icon {
+  width: 24px;        /* عرض الصورة */
+  height: 24px;       /* ارتفاع الصورة */
+  object-fit: contain;
+
+}
+#contact-btn {
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+font-weight: bold;
+margin-left: -16px;
+color: (122,122,122);
+}
+/* ستايل الزر container */
+#filter-buttons {
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* ستايل الأزرار */
+#filter-buttons button {
+  background-color: #ff7a00  !important; /* لون الزر */
+  color: white; /* لون النص */
+  padding: 5px 8px !important; /* تصغير مساحة الزر داخلياً */
+  width: 70px; /* عرض الزر */
+  height: 30px; /* ارتفاع الزر */
+  font-size: 10px; /* حجم الخط */
+  border: none; 
+  border-radius: 5px; /* حواف مستديرة */
+  cursor: pointer;
+}
+
+#filter-buttons button:hover {
+ transform: scale(1.03);
+  background-color: #e69500; /* تأثير عند المرور بالماوس */
+}
+  /*----------------------------product css---------------------------------*/
+
+.product {
+border: 1px solid #ccc;
+border-radius: 6px;
+padding: 10px;
+text-align: center;
+width: 180px;
+margin: 10px;
+display: inline-block;
+vertical-align: top;
+margin-left: 30px;
+
+}
+h3 {
+text-align: center;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+border-bottom: solid 2px;
+padding-bottom: 8px;
+
+
+
+}
+.product-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.product-logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;        /* يغطي عرض الصورة بالكامل */
+  height: 100%;       /* يغطي طول الصورة بالكامل */
+  object-fit: cover;  /* يحافظ على تناسق الشعار */
+  opacity: 0.2;       /* شفافية بسيطة */
+}
+.product-image,.product-logo
+{
+
+
+
+  transition: transform 0.35s ease;
+
+}
+.product-image-wrapper:hover .product-image,
+.product-image-wrapper:hover .product-logo {
+
+transform:scale(1.1) ;
+
+
+
+
+}
+.nicotine-options {
+display: flex;
+justify-content: center;
+gap: 10px;
+margin: 10px ;
+}
+.nicotine-btn {
+padding: 5px 10px;
+border: 1px solid #999;
+border-radius: 6px;
+font-size: 13px;
+transition: 0.2s;
+user-select: none;
+cursor: pointer;
+}
+.nicotine-btn input {
+display: none;
+
+}
+.nicotine-btn:has(input:checked){
+border-color: orange;
+font-weight: 600;
+color: orange;
+
+
+}
+.product-price {
+margin-top: 5px;
+font-weight: bold;
+font-size: 14px;
+}
+.buy-btn {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 8px 22px;
+  background-color: #ff7a00;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+/* Hover */
+.buy-btn:hover {
+  background-color: #e96f00;
+  transform: scale(1.05);
+}
+h3 {
+
+font-size: 16px;
+
+
+
+
+}
+/*-----------------css product end-----------------------------*/
+
+
+
+
+
+/*----------------------------product css---------------------------------*/
+
+.product2 {
+border: 1px solid #ccc;
+border-radius: 6px;
+padding: 10px;
+text-align: center;
+width: 180px;
+margin: 10px;
+display: inline-block;
+vertical-align: top;
+}
+h3 {
+text-align: center;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+border-bottom: solid 2px;
+padding-bottom: 8px;
+
+
+
+
+}
+.product-image-wrapper2 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.product-image2 {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.product-logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;        /* يغطي عرض الصورة بالكامل */
+  height: 100%;       /* يغطي طول الصورة بالكامل */
+  object-fit: cover;  /* يحافظ على تناسق الشعار */
+  opacity: 0.2;       /* شفافية بسيطة */
+}
+.product-image2,.product-logo
+{
+
+
+
+  transition: transform 0.35s ease;
+
+}
+.product-image-wrapper2:hover .product-image2,
+.product-image-wrapper2:hover .product-logo {
+
+transform:scale(1.1) ;
+
+
+
+
+}
+.nicotine-options2 {
+display: flex;
+justify-content: center;
+gap: 10px;
+margin: 10px ;
+}
+.nicotine-btn2 {
+padding: 5px 10px;
+border: 1px solid #999;
+border-radius: 6px;
+font-size: 13px;
+transition: 0.2s;
+user-select: none;
+cursor: pointer;
+}
+.nicotine-btn2 input {
+display: none;
+
+}
+.nicotine-btn2:has(input:checked){
+border-color: orange;
+font-weight: 600;
+color: orange;
+
+
+}
+.product-price2 {
+margin-top: 5px;
+font-weight: bold;
+font-size: 14px;
+}
+.buy-btn2 {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 8px 22px;
+  background-color: #ff7a00;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+/* Hover */
+.buy-btn2:hover {
+  background-color: #e96f00;
+  transform: scale(1.05);
+}
+/*-----------------css product end-----------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+
+
+
+
+
+
+
+
+
+<style>
+   
+   @media (max-width: 768px) {
+
+  body {
+    text-align: center;   /* يمسك كل inline-block بالمنتصف */
+  }
+
+  .product {
+    margin: 20px 15px;
+    margin-left: 0 !important;   /* يلغي الميلان */
+    margin-right: 0 !important;
+    width: 140px;                  /* عمودين */
+  }}
+
+header {
+text-align: center;
+margin-top: 40px;
+}
+#logo {
+
+    width: 150px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 20px;
+
+}
+#age-warning {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(255,255,255,1);
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 9999;
+}
+.age-box {
+background: #6c6c6c;
+color: white;
+padding: 30px;
+border-radius: 12px;
+text-align: center;
+max-width: 400px;
+}
+.age-box h2 {
+margin-bottom: 15px;
+}
+.age-box button {
+margin: 10px;
+padding: 10px 20px;
+border: none;
+border-radius: 6px;
+cursor: pointer;
+}
+.age-box button:first-child {
+background: #00c853;
+color: rgb(0, 0, 0);
+}
+.age-box button:last-child {
+background: #d50000;
+color: white;
+}
+/* Media Queries للموبايل */
+
+
+
+
+
+</style>
+
+
+
+
+<script>
+const searchInput = document.getElementById("searchInput");
+const searchBtn = document.getElementById("searchBtn");
+const products = document.querySelectorAll(".product");
+const noResults = document.getElementById("noResults");
+
+searchBtn.addEventListener("click", function () {
+  const value = searchInput.value.toLowerCase();
+  let found = false;
+
+  products.forEach(function (product) {
+    const name = product.querySelector("h3").innerText.toLowerCase();
+
+    if (name.includes(value)) {
+      product.style.display = "";
+      found = true;
+    } else {
+      product.style.display = "none";
+    }
+  });
+
+  if (!found) {
+    noResults.style.display = "block";
+  } else {
+    noResults.style.display = "none";
+  }
+});
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const ageBox = document.getElementById("age-warning");
+  const acceptBtn = document.getElementById("acceptBtn");
+
+  if (acceptBtn) {
+    acceptBtn.addEventListener("click", function () {
+      localStorage.setItem("acceptBtn", "yes");
+      ageBox.style.display = "none";
+    });
+  }
+
+  if (false) {
+    ageBox.style.display = "none";
+  }
+
+});
+
+const slides = document.querySelectorAll('.slide');
+let current = 0;
+
+document.getElementById('next').addEventListener('click', () => {
+  slides[current].classList.remove('active');
+  current = (current + 1) % slides.length;
+  slides[current].classList.add('active');
+});
+
+document.getElementById('prev').addEventListener('click', () => {
+  slides[current].classList.remove('active');
+  current = (current - 1 + slides.length) % slides.length;
+  slides[current].classList.add('active');
+});
+</script>
+<script>
+  const menuBtn = document.getElementById("menu-btn");
+  const sideMenu = document.getElementById("side-menu");
+  const liquidToggle = document.querySelector(".submenu-toggle");
+  const submenu = document.querySelector(".submenu");
+
+  menuBtn.addEventListener("click", () => {
+    sideMenu.classList.toggle("open");
+  });
+
+  liquidToggle.addEventListener("click", () => {
+    submenu.style.display =
+      submenu.style.display === "block" ? "none" : "block";
+  });
+  const directionBtn = document.getElementById("direction-btn");
+const directionBox = document.getElementById("direction-box");
+
+directionBtn.addEventListener("click", () => {
+  if (directionBox.style.display === "none" || directionBox.style.display === "") {
+    directionBox.style.display = "block";  // يظهر الصندوق
+  } else {
+    directionBox.style.display = "none";   // يخفي الصندوق
+  }
+});
+const contactBtn = document.getElementById("contact-btn");
+const contactBox = document.getElementById("contact-box");
+
+contactBtn.addEventListener("click", () => {
+  if (contactBox.style.display === "none" || contactBox.style.display === "") {
+    contactBox.style.display = "block"; // يظهر الصندوق
+  } else {
+    contactBox.style.display = "none";  // يخفي الصندوق
+  }
+});
+</script>
+</body>
+</html>
