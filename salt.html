@@ -112,46 +112,195 @@ gap: 2px;
 <div id="noResults">لم يتم الحصول على نتائج</div>
 
 
-<!-- زر التلت شخطات -->
 <div id="menu-btn">☰</div>
 
-<!-- القائمة الجانبية -->
-<div id="side-menu" class="side-menu">
+<!-- السلايد منيو -->
+<nav id="side-menu">
+  <!-- زر إكس لإغلاق القائمة -->
+  <div id="close-btn">✖</div>
 
   <ul>
+    
     <li><a href="index.html">Home</a></li>
-    <li class="has-submenu">
-      <span class="submenu-toggle">Liquids</span>
-      <ul class="submenu">
-        <li><a href="freebase.html">Free Base</a></li>
-        <li><a href="salt.html">Salt Nicotine</a></li>
+    <li class="toggle">E-Liquid
+      <ul class="sub-menu">
+        <li><a href="salt.html">.Salt Nicotine</a></li>
+        <li><a href="freebase.html">.Free Base</a></li>
       </ul>
     </li>
-    <li>
-  <button class="menu-item" id="contact-btn">Contact</button>
-  <div id="contact-box" class="hidden">
-    <a href="https://wa.me/message/IXYMUJRDLYOXA1" target="_blank">
-      <img src="wa.png" alt="WhatsApp" class="contact-icon">
-      WhatsApp
-    </a>
-    <a href="https://www.instagram.com/cityvpsy?igsh=MXVuejZkYnE4cXNrOQ==" target="_blank">
-      <img src="insta.png" alt="Instagram" class="contact-icon">
-      Instagram
-    </a>
-  </div>
-</li>
-    <li><a href="disposables.html">Disposables</a></li>
-   <li>
-  <button class="menu-item" id="direction-btn">
-    ⚲ Directions
-  </button>
-  <div id="direction-box" class="hidden">
-    <p><a href="https://maps.google.com/?q=33.518898,36.280708"target="_blank">فرع الجاحظ</a></p>
-
-    <p><a href="https://maps.app.goo.gl/7Pwk6Y3beyesFKCF7?g_st=awb"target="_blank">فرع مساكن برزة</a></p>
-  </div>
-</li>
+    <li><a href="devices.html">Devices</a></li>
+    <li><a href="pod-system.html">Pod System</a></li>
+    <li><a href="coils.html">Coils</a></li>
+    <li class="toggle">Contact
+      <ul class="sub-menu">
+        <li><a href="https://wa.me/message/IXYMUJRDLYOXA1">.Whatsapp</a></li>
+        <li><a href="https://www.instagram.com/cityvpsy?igsh=MXVuejZkYnE4cXNrOQ==">.Instagram</a></li>
+      </ul>
+    </li>
+   <li class="toggle">Directions
+      <ul class="sub-menu">
+        <li><a href="https://maps.google.com/?q=33.518898,36.280708">.Al-Jahiz</a></li>
+        <li><a href="https://maps.app.goo.gl/7Pwk6Y3beyesFKCF7?g_st=awb">.Masaken Barzeh</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 </div>
+<style>
+#side-menu li.e-liquid .sub-menu li {
+
+margin-bottom: 0px;
+margin-top: 0px;
+}
+#side-menu li.e-liquid{
+
+margin-bottom: 12px;
+
+
+}
+  .menu-logo {
+display: block;
+width: 100px;
+height: 100px;
+margin: 0 auto 20px auto;
+
+
+  }
+ /* ================================
+   MENU BUTTON (☰ ثابت وفوق كل شيء)
+================================ */
+#menu-btn {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  font-size: 36px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10002;
+  user-select: none;
+  transition: color 0.3s ease;
+  color: #222;
+}
+
+#menu-btn:hover {
+  color: #ff7a00;
+}
+
+/* ================================
+   SIDE MENU
+================================ */
+#side-menu {
+  position: fixed;
+  top: 0;
+  left: -30%;
+  width: 30%;
+  max-width: 280px;
+  height: 100vh;
+  background: #ffffff;
+  padding-top: 60px;
+  transition: left 0.35s ease;
+  z-index: 10001;
+  direction: ltr; /* الكتابة على اليسار */
+  box-shadow: 2px 0 12px rgba(0,0,0,0.2);
+  border-right: 1px solid #ddd;
+}
+
+/* تظهر القائمة */
+#side-menu.active {
+  left: 0;
+}
+
+/* ================================
+   CLOSE BUTTON
+================================ */
+#close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 28px;
+  cursor: pointer;
+  color: #222;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+#close-btn:hover {
+  color: #ff7a00;
+}
+
+/* ================================
+   MENU LIST
+================================ */
+#side-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#side-menu li {
+  padding: 2px 0 2px 12px;
+  text-align: left;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+}
+
+#side-menu a,
+#side-menu .toggle {
+  display: block;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 700;
+  color: #222;
+  cursor: pointer;
+  transition: color 0.25s ease;
+}
+
+#side-menu a:hover,
+#side-menu .toggle:hover {
+  color: #ff7a00;
+}
+
+/* ================================
+   SUB MENU
+================================ */
+.sub-menu {
+  display: none;
+  margin-top: 6px;
+}
+
+.sub-menu li {
+  padding: 6px 0 6px 12px;
+}
+
+.sub-menu a {
+  font-size: 16px;
+  font-weight: 600;
+  color: #444;
+}
+
+.sub-menu a:hover {
+  color: #ff7a00;
+}
+
+/* ================================
+   RESPONSIVE (MOBILE)
+================================ */
+@media (max-width: 768px) {
+  #side-menu {
+    width: 40%;
+    left: -40%;
+  }
+
+  #side-menu li {
+    padding: 12px 14px;
+  }
+
+  #side-menu a,
+  #side-menu .toggle {
+    font-size: 16px;
+  }
+}
+</style>
 <!-- أزرار الفلترة -->
 <div id="filter-buttons" style="margin-top: 10px; text-align: center;">
   <button onclick="location.href='freebase.html'"style="padding: 8px 15px; margin-right: 10px; background-color: #FFA500; border: none; border-radius: 5px; cursor: pointer;">
@@ -2177,8 +2326,394 @@ gap: 2px;
 </div>
 
 
+<div class="product" data-name="JDI vape coffe caramel">
+  <div class="product-image-wrapper">
+    <img src="coffe 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">JDI Vape-coffe caramel</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="12">
+    30/50 mg 
+    <input type="text" name="nicotine" value="120">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">10$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=jdi-vape-coffe-caramel-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+<div class="product" data-name="JDI vape coffe hazelnut">
+  <div class="product-image-wrapper">
+    <img src="coffe haz 30ml.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">JDI Vape-coffe hazelnut</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="12">
+    30/50 mg
+    <input type="text" name="nicotine" value="120">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">10$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=jdi-vape-coffe-hazelnut-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
 
 
+
+
+<div class="product" data-name="JDI vape butter cookie">
+  <div class="product-image-wrapper">
+    <img src="cookie.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">JDI Vape-butter cookie</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="12">
+    30/50 mg
+    <input type="text" name="nicotine" value="120">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">10$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=jdi-vape-butter-cookie-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+<div class="product" data-name="JDI vape butter strawberry cookie">
+  <div class="product-image-wrapper">
+    <img src="s cookie.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">JDI Vape-butter strawberry cookie</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="12">
+    30/50 mg
+    <input type="text" name="nicotine" value="120">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">10$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=jdi-vape-butter-strawberry-cookie-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+<div class="product" data-name="JDI vape butter bannana cookie">
+  <div class="product-image-wrapper">
+    <img src="b cookie.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">JDI Vape-butter banana cookie</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="12">
+    30/50 mg
+    <input type="text" name="nicotine" value="120">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">10$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=jdi-vape-butter-bannana-cookie-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+<div class="product" data-name="JDI vape cheeese cake blue berry">
+  <div class="product-image-wrapper">
+    <img src="cake cheese.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">JDI Vape-cheese cake blue berry</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="12">
+    30/50 mg
+    <input type="text" name="nicotine" value="120">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">10$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=jdi-vape-cheese-cake-blueberry-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+<div class="product" data-name="JDI vape cheeese cake lemon">
+  <div class="product-image-wrapper">
+    <img src="l cheese.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">JDI Vape-cheese cake lemon</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="12">
+    30/50mg
+    <input type="text" name="nicotine" value="120">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">10$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=jdi-vape-cheese-cake-lemon-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="product" data-name="JDI vape cheeese cake strawberry">
+  <div class="product-image-wrapper">
+    <img src="chesse red.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">JDI Vape-cheese cake strawberry</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="12">
+    30/50 mg
+    <input type="text" name="nicotine" value="120">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">10$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=jdi-vape-cheese-cake-strawberry-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+
+
+<div class="product" data-name="JDI vape breakfast cereal">
+  <div class="product-image-wrapper">
+    <img src="cereal.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">JDI Vape-breakfast cereal</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="12">
+    30/50 mg
+    <input type="text" name="nicotine" value="120">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">10$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=jdi-vape-breakfast-cereal-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+<div class="product" data-name="JDI vape cheeese cake original">
+  <div class="product-image-wrapper">
+    <img src="original cake.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">JDI Vape-cheese cake original</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="12">
+    30/50 mg
+    <input type="text" name="nicotine" value="120">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">12.5$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=jdi-vape-cheese-cake-original-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+<div class="product" data-name="JDI vape cheeese cake banana">
+  <div class="product-image-wrapper">
+    <img src="original cake.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">JDI Vape-cheese cake banana</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="12">
+    30/50 mg
+    <input type="text" name="nicotine" value="120">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">10$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=jdi-vape-cheese-cake-banana-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+<div class="product" data-name="JDI vape breakfast cereal berry">
+  <div class="product-image-wrapper">
+    <img src="berry milk.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">JDI Vape-breakfast cereal berry</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="12">
+    30/50 mg
+    <input type="text" name="nicotine" value="120">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">10$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=jdi-vape-breakfast-cereal-berry-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
+
+
+
+<div class="product" data-name="JDI vape breakfast cereal strawberry">
+  <div class="product-image-wrapper">
+    <img src="s break.jpg" alt="Product " class="product-image">
+    <!-- الشعار يغطي الصورة بالكامل -->
+    <img src="logg.png" alt="Logo" class="product-logo">
+  </div>
+<h3 class="product-name">JDI Vape-breakfast cereal strawberry</h3>
+  <!-- خيارات النيكوتين -->
+  <div class="nicotine-options">
+  <label class="nicotine-btn">
+    <input type="radio" name="nicotine" value="12">
+    30/50 mg
+    <input type="text" name="nicotine" value="120">
+    30 ml
+  </label>  
+</div>
+
+  <!-- السعر -->
+  <div class="product-price2">
+    Price: <span class="price-value">10$</span>
+  </div>
+<!----------------------------product buy--------------------------------->
+  <div class="buy-now">
+    <a href="https://wa.me/963998067029?text=jdi-vape-breakfast-cereal-strawberry-30ml-nicotine-mg" class="buy-btn">Buy</a>
+  </div>
+</div>
+</div>
 
 <style>
 
@@ -2431,7 +2966,7 @@ color: (122,122,122);
   /*----------------------------product css---------------------------------*/
 
 .product {
-border: 1px solid #ccc;
+
 border-radius: 6px;
 padding: 10px;
 text-align: center;
@@ -2701,7 +3236,7 @@ font-size: 14px;
     margin: 20px 15px;
     margin-left: 0 !important;   /* يلغي الميلان */
     margin-right: 0 !important;
-    width: 140px;                  /* عمودين */
+    width: 180px;                  /* عمودين */
   }}
 
 header {
@@ -2831,38 +3366,28 @@ document.getElementById('prev').addEventListener('click', () => {
 });
 </script>
 <script>
-  const menuBtn = document.getElementById("menu-btn");
-  const sideMenu = document.getElementById("side-menu");
-  const liquidToggle = document.querySelector(".submenu-toggle");
-  const submenu = document.querySelector(".submenu");
+const menuBtn = document.getElementById('menu-btn');
+const sideMenu = document.getElementById('side-menu');
+const closeBtn = document.getElementById('close-btn');
 
-  menuBtn.addEventListener("click", () => {
-    sideMenu.classList.toggle("open");
-  });
-
-  liquidToggle.addEventListener("click", () => {
-    submenu.style.display =
-      submenu.style.display === "block" ? "none" : "block";
-  });
-  const directionBtn = document.getElementById("direction-btn");
-const directionBox = document.getElementById("direction-box");
-
-directionBtn.addEventListener("click", () => {
-  if (directionBox.style.display === "none" || directionBox.style.display === "") {
-    directionBox.style.display = "block";  // يظهر الصندوق
-  } else {
-    directionBox.style.display = "none";   // يخفي الصندوق
-  }
+menuBtn.addEventListener('click', () => {
+  sideMenu.classList.toggle('active');
 });
-const contactBtn = document.getElementById("contact-btn");
-const contactBox = document.getElementById("contact-box");
 
-contactBtn.addEventListener("click", () => {
-  if (contactBox.style.display === "none" || contactBox.style.display === "") {
-    contactBox.style.display = "block"; // يظهر الصندوق
-  } else {
-    contactBox.style.display = "none";  // يخفي الصندوق
-  }
+closeBtn.addEventListener('click', () => {
+  sideMenu.classList.remove('active');
+});
+
+// فتح وغلق الـsub-menu
+const toggles = document.querySelectorAll('#side-menu .toggle');
+
+toggles.forEach(toggle => {
+  toggle.addEventListener('click', () => {
+    const subMenu = toggle.querySelector('.sub-menu');
+    if(subMenu) {
+      subMenu.style.display = subMenu.style.display === 'block' ? 'none' : 'block';
+    }
+  });
 });
 </script>
 </body>
